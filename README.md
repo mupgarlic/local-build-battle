@@ -8,7 +8,7 @@ Basically I wrote like +250 strings in an array & made a simple HTML page to pic
 
 In the 'Rules' page, I also defined some concepts to not only play Build Battle inside of Minecraft, but also for making actual 3D models in case the competitors are artists & designers :D. In case you don't want to set a 5 minutes timer yourself, open the 'Timer' page and you'll find one.
 
-Try it out live on [this link]() or by just downloading this ZIP.
+Try it out live on [this link](https://mupgarlic.github.io/local-build-battle/) or by just downloading this ZIP.
 
 # Special thanks
 
