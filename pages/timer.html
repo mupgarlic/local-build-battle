@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Timer | Build Battle</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button id="back" value="clickme" onclick="location.href='../index.html'">Back</button><button id="time" value="clickme" onclick="launch()">Start</button>
+    <div class="otp-countdown"  id="timer-countdown">5:00</div>
+    <audio id="melody" src="../assets/melody.mp3"></audio>
+    <script>
+        function countdown( elementName, minutes, seconds )
+        {
+            var element, endTime, hours, mins, msLeft, time;
+            function twoDigits( n )
+            {
+                return (n <= 9 ? "0" + n : n);
+            }
+            function updateTimer()
+            {
+                msLeft = endTime - (+new Date);
+                if ( msLeft < 1000 ) {
+                    element.innerHTML = "Time is up!";
+                    document.getElementById("melody").play();
+                } else {
+                    time = new Date( msLeft );
+                    hours = time.getUTCHours();
+                    mins = time.getUTCMinutes();
+                    element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+                    setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+                }
+            }
+            element = document.getElementById( elementName );
+            endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+            updateTimer();
+        }
+
+        function launch() {
+            countdown( "timer-countdown", 5, 0 );
+            document.getElementById("time").remove();
+        }
+    </script>
+</body>
+</html>
